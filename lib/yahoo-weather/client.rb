@@ -3,7 +3,7 @@ class YahooWeather::Client
   # the url with which we obtain weather information from yahoo
   @@API_URL = "http://weather.yahooapis.com/forecastrss"
 
-  def initialize (api_url = @@API_URL)
+  def initialize(api_url = @@API_URL)
     @api_url = api_url
   end
 
@@ -24,7 +24,7 @@ class YahooWeather::Client
   # +Fahrenheit+ as YahooWeather::Units::FAHRENHEIT, or +Celsius+ as
   # YahooWeather::Units::CELSIUS, and defaults to fahrenheit.
   #
-  def lookup_by_woeid (woeid, units = 'f')
+  def lookup_by_woeid(woeid, units = 'f')
     url = @api_url + '?w=' + CGI.escape(woeid.to_s) + '&u=' + CGI.escape(units)
     _lookup(woeid, url)
   end
@@ -46,14 +46,13 @@ class YahooWeather::Client
   # +Fahrenheit+ as YahooWeather::Units::FAHRENHEIT, or +Celsius+ as
   # YahooWeather::Units::CELSIUS, and defaults to fahrenheit.
   #
-  def lookup_location (location, units = 'f')
+  def lookup_location(location, units = 'f')    
     url = @api_url + '?p=' + CGI.escape(location) + '&u=' + CGI.escape(units)
     _lookup(location, url)
   end
 
   private
-
-    def _lookup (src, url)
+    def _lookup(src, url)
       begin
         response = Net::HTTP.get_response(URI.parse(url)).body.to_s
 
@@ -66,5 +65,4 @@ class YahooWeather::Client
       doc = Nokogiri::XML.parse(response)
       YahooWeather::Response.new(src, url, doc)
     end
-
 end

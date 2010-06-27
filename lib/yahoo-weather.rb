@@ -19,9 +19,10 @@ require 'net/http'
 require 'cgi'
 require 'time'
 require 'nokogiri'
+require 'happymapper'
 
 class YahooWeather
-  VERSION = '1.2.0'
+  VERSION = '1.2.1'
 
   def self._parse_time (text)
     (text) ? Time.parse(text) : nil
@@ -35,6 +36,8 @@ require 'yahoo-weather/condition'
 require 'yahoo-weather/forecast'
 require 'yahoo-weather/image'
 require 'yahoo-weather/location'
+require 'yahoo-weather/place'
+require 'yahoo-weather/place_response'
 require 'yahoo-weather/response'
 require 'yahoo-weather/units'
 require 'yahoo-weather/wind'

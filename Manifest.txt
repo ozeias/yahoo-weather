@@ -8,6 +8,8 @@ lib/yahoo-weather/condition.rb
 lib/yahoo-weather/forecast.rb
 lib/yahoo-weather/image.rb
 lib/yahoo-weather/location.rb
+lib/yahoo-weather/place.rb
+lib/yahoo-weather/place_response.rb
 lib/yahoo-weather/response.rb
 lib/yahoo-weather/units.rb
 lib/yahoo-weather/wind.rb
